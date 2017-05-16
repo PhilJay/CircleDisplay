@@ -1,5 +1,5 @@
 
-package com.philjay.circledisplay;
+package com.manzo.popularmovies.utilities;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
@@ -75,6 +75,7 @@ public class CircleDisplay extends View implements OnGestureListener {
 
     /** the decimalformat responsible for formatting the values in the view */
     private DecimalFormat mFormatValue = new DecimalFormat("###,###,###,##0.0");
+
 
     /** array that contains values for the custom-text */
     private String[] mCustomText = null;
@@ -399,6 +400,24 @@ public class CircleDisplay extends View implements OnGestureListener {
     }
 
     /**
+     * set the color of the Inner circle
+     *
+     * @param color
+     */
+    public void setInnerCircleColor(int color) {
+        mInnerCirclePaint.setColor(color);
+    }
+
+    /**
+     * set the color of the inner text
+     *
+     * @param color
+     */
+    public void setTextColor(int color) {
+        mTextPaint.setColor(color);
+    }
+
+    /**
      * set the size of the center text in dp
      * 
      * @param size
@@ -443,6 +462,14 @@ public class CircleDisplay extends View implements OnGestureListener {
 
         mFormatValue = new DecimalFormat("###,###,###,##0" + b.toString());
     }
+
+    /**
+     * sets the decimal format to be used
+     *
+     * @param decimalFormat
+     */
+
+    public void setDecimalFormat (DecimalFormat decimalFormat) {mFormatValue = decimalFormat;}
 
     /**
      * set the aplha value to be used for the remainder of the arc, default 80
