@@ -1,5 +1,5 @@
 
-package com.manzo.popularmovies.utilities;
+package com.philjay.circledisplay;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
