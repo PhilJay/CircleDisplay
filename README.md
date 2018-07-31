@@ -55,7 +55,8 @@ or create it in code:
  - <code>setStepSize(float stepsize)</code>: Sets the stepsize (minimum selection interval) of the circle display,
 default 1f. It is recommended to make this value not higher than 1/5 of the maximum selectable value, and not lower than 1/200 of the maximum selectable value. For example, if a maximum of 100 has been chosen, a stepsize between 0.5 and 20 is recommended.
  - <code>setCustomText(String[] custom)</code>: Sets an array of custom Strings to be drawn instead of the actual value in the center of the CircleDisplay. If set to null, the custom text will be reset and the value will be drawn. Make sure the length of the array corresponds with the maximum number of steps (maxvalue / stepsize).
-
+ - <code>setColors(int[] colors)</code>: Sets an array of colors to set the color for the arc/bar to change with the value as it progresses. You can either use Color.COLORNAME as a parameter or getColor(resid).
+  
 **Showing stuff:**
  - <code>public void showValue(float toShow, float total, boolean animated)</code>: Shows the given value. A maximumvalue also needs to be provided. Set animated to true to animate the displaying of the value.
 
@@ -81,6 +82,7 @@ default 1f. It is recommended to make this value not higher than 1/5 of the maxi
     cd.setUnit("%");
     cd.setStepSize(0.5f);
     // cd.setCustomText(...); // sets a custom array of text
+    cd.setColors(new int[]{Color.RED, Color.YELLOW, Color.GREEN});
     cd.showValue(75f, 100f, true);
 ``` 
 
