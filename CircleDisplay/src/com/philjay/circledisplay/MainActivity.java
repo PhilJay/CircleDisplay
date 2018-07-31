@@ -30,6 +30,7 @@ public class MainActivity extends Activity implements SelectionListener {
         mCircleDisplay.setTouchEnabled(true);
         mCircleDisplay.setUnit("%");
         mCircleDisplay.setStepSize(0.5f);
+        mCircleDisplay.setColors(new int[]{Color.RED, Color.YELLOW, Color.GREEN});
         mCircleDisplay.showValue(75f, 100f, true);
     }
 

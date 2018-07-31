@@ -157,6 +157,9 @@ public class CircleDisplay extends View implements OnGestureListener {
             else
                 drawText(canvas);
         }
+
+        if (mColors !=null )
+            setColors(mValue * mPhase);
     }
 
     /**
@@ -815,5 +818,21 @@ public class CircleDisplay extends View implements OnGestureListener {
     public void onShowPress(MotionEvent e) {
         // TODO Auto-generated method stub
 
+    }
+
+    private int mNoOfColors;
+    private int[] mColors;
+
+    public void setColors(int[] mColors) {
+        this.mNoOfColors = mColors.length;
+        this.mColors = mColors;
+    }
+
+    private void setColors(float val) {
+        float mEqualPart = mMaxValue/ mNoOfColors;
+        int index = (int) (val/mEqualPart);
+        if (index == mNoOfColors)
+            index-=1;
+        mArcPaint.setColor(mColors[index]);
     }
 }
