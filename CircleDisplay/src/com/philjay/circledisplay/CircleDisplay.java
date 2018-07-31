@@ -92,6 +92,12 @@ public class CircleDisplay extends View implements OnGestureListener {
     /** object animator for doing the drawing animations */
     private ObjectAnimator mDrawAnimator;
 
+    /** This represents the total number of colors in mColors arrays */
+    private int mNoOfColors;
+
+    /** array that contains values for the arc colors */
+    private int[] mColors;
+
     public CircleDisplay(Context context) {
         super(context);
         init();
@@ -820,13 +826,20 @@ public class CircleDisplay extends View implements OnGestureListener {
 
     }
 
-    private int mNoOfColors;
-    private int[] mColors;
-
-    public void setColors(int[] mColors) {
-        this.mNoOfColors = mColors.length;
-        this.mColors = mColors;
+    /**
+     * Sets an array of colors to set the color for the arc/bar to change with the value as it progresses.
+     * You can either use Color.COLORNAME as a parameter or getColor(resid)
+     * @param colors
+     */
+    public void setColors(int[] colors) {
+        this.mNoOfColors = colors.length;
+        this.mColors = colors;
     }
+
+    /**
+     * If the colors array isn't null, the maximum value will be divide by the number of colors to give each color equal amount of value
+     * @param val
+     */
 
     private void setColors(float val) {
         float mEqualPart = mMaxValue/ mNoOfColors;
